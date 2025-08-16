@@ -1,0 +1,259 @@
+@import "tailwindcss";
+html, body { margin: 0; padding: 0; width: 100%; min-height: 100vh; overflow-x: hidden; }
+
+@keyframes border {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-border {
+  background-image: linear-gradient(270deg, #ff00ff, #00ffff, #ff00ff);
+  background-size: 300% 300%;
+  border-radius: 0.375rem;
+  padding: 2px;
+  animation: border 4s ease infinite;
+}
+
+.animated-border input {
+  background: white;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  padding-left: 0.75rem;
+}
+
+
+@layer utilities {
+  @keyframes star-movement-bottom {
+    0% {
+      transform: translate(0%, 0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-90%, 0%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes star-movement-top {
+    0% {
+      transform: translate(0%, 0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(90%, 0%);
+      opacity: 0;
+    }
+  }
+
+  .animate-star-movement-bottom {
+    animation: star-movement-bottom linear infinite alternate;
+  }
+
+  .animate-star-movement-top {
+    animation: star-movement-top linear infinite alternate;
+  }
+}
+
+
+
+@keyframes glitch-after {
+  0% { clip-path: inset(0 0 0 0); }
+  20% { clip-path: inset(10% 0 90% 0); }
+  40% { clip-path: inset(80% 0 5% 0); }
+  60% { clip-path: inset(50% 0 30% 0); }
+  80% { clip-path: inset(20% 0 60% 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes glitch-before {
+  0% { clip-path: inset(0 0 0 0); }
+  20% { clip-path: inset(80% 0 5% 0); }
+  40% { clip-path: inset(10% 0 85% 0); }
+  60% { clip-path: inset(40% 0 40% 0); }
+  80% { clip-path: inset(70% 0 10% 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+.animate-glitch-after {
+  animation: glitch-after var(--after-duration) infinite linear alternate-reverse;
+}
+
+.animate-glitch-before {
+  animation: glitch-before var(--before-duration) infinite linear alternate-reverse;
+}
+
+
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Create a custom animation class */
+.animate-glowing {
+  animation: glowing 20s linear infinite;
+}
+
+/* Your glowing button style */
+.glow-btn {
+  @apply relative w-[220px] h-[50px] rounded-[10px]
+         text-white bg-[#111] cursor-pointer z-0
+         border-none outline-none select-none
+         after:content-[''] after:absolute after:inset-0 after:bg-[#111] after:rounded-[10px] after:z-[-1]
+         before:content-[''] before:absolute before:top-[-2px] before:left-[-2px]
+         before:w-[calc(100%+4px)] before:h-[calc(100%+4px)]
+         before:rounded-[10px]
+         before:bg-[linear-gradient(45deg,#ff0000,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00c8,#ff0000)]
+         before:bg-[length:400%_400%]
+         before:blur-[5px] before:z-[-1] before:opacity-1000
+         before:transition-opacity before:duration-300
+         /* hover:before:opacity-100; */
+}
+
+/* Apply animation manually to before pseudo */
+.glow-btn::before {
+  animation: glowing 20s linear infinite;
+}
+
+
+
+.animate-glowing {
+  animation: glowing 7s linear infinite;
+}
+
+/* Your glowing button style */
+.glow-contactUs {
+  @apply relative  rounded-[18px] mt-2 flex justify-center items-center
+         text-white bg-[hsla(0,0%,7%,0)] cursor-pointer z-0
+         border-[3px] 
+         after:content-[''] after:absolute after:inset-0 after:bg-[#111] after:rounded-[18px] after:z-[-1]
+         before:content-[''] before:absolute before:top-[-2px] before:left-[-2px]
+         before:w-[calc(100%+4px)] before:h-[calc(100%+4px)]
+         before:rounded-[18px]
+         before:bg-[linear-gradient(90deg,_rgba(35,26,156,1)_14%,_rgba(2,0,36,1)_42%,_rgba(17,194,185,1)_75%)]
+         before:bg-[length:400%_400%]
+         before:blur-[5px] before:z-[-1] before:opacity-1000
+         before:transition-opacity before:duration-300
+         /* hover:before:opacity-100; */
+}
+
+/* Apply animation manually to before pseudo */
+.glow-contactUs::before {
+  animation: glowing 7s linear infinite;
+}
+@keyframes shimmer {
+  0% {
+    background-position: 130%;
+    opacity: 1;
+  }
+  100% {
+    background-position: -166%;
+    opacity: 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease infinite;
+}
+
+/* Tailwind doesn't have text-shadow built-in, so we add it here */
+.text-shadow {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.67);
+}
+
+
+@keyframes upDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-upDown {
+  animation: upDown 1s ease-in-out infinite;
+}
+
+/* :root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
