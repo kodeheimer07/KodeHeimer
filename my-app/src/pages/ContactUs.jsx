@@ -72,7 +72,7 @@ const ContactUs = () => {
                                            <p className="mt-6 text-xl text-gray-400">THECODECRAFTS</p>
                                            <p className="mt-1 text-xl text-gray-400">Jamshedpur, INDIA</p>
                                            <p className="mt-1 text-xl text-gray-400">T:<span className="text-blue-400">+917004109936</span></p>
-                                           <p className="mt-1 text-xl text-gray-400">E:<span className="text-blue-400">thecodecrafts07@gmail.com</span></p>
+                                           <p className="mt-1 text-xl text-gray-400">E:<span className="text-blue-400">kodeheimer07@gmail.com</span></p>
                                      </div>
                                      <form ref={form} onSubmit={sendEmail} >
                                             <div className=" flex md:flex md:flex-row flex-col gap-x-5 gap-y-5">
